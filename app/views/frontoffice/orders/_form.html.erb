@@ -1,0 +1,16 @@
+<%= form_with model:([:frontoffice, order])  do |form| %>
+<%= form.label :sector_called_id %>
+<%= form.select :sector_called_id, @sector_calleds %>
+<br>
+<%= form.label :title %>
+<%= form.text_field :title %>
+<br>
+<%= form.label :description %>
+<%= form.text_area :description %>
+<br>
+<%= form.label :priority %>
+<%= form.select :priority, @priorities %>
+
+<br>
+<%= form.submit %>
+<% end %>

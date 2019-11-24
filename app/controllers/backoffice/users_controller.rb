@@ -9,19 +9,24 @@ class Backoffice::UsersController < BackofficeController
   end
 
   def edit
-    # code
+    prepare_form
   end
 
   def create
     @user = User.new(users_params)
     if @user.save
       redirect_to backoffice_users_path
+    else
+      prepare_form
     end
   end
 
   def update
+    # binding.pry
     if @user.update(users_params)
       redirect_to backoffice_users_path
+    else
+      prepare_form
     end
   end
 
@@ -29,6 +34,10 @@ class Backoffice::UsersController < BackofficeController
 
   def set_users
     @user = User.find(params[:id])
+  end
+
+  def prepare_form
+    @sectors = Sector.all.map { |s| [s.name, s.id]  }
   end
 
   def users_params
