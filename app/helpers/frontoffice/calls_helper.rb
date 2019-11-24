@@ -1,0 +1,2 @@
+module Frontoffice::CallsHelper
+end

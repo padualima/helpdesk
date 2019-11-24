@@ -10,8 +10,13 @@
   </head>
 
   <body>
-    <%= link_to "Inicio", "#" %>
+    <%= link_to "Inicio", frontoffice_root_path %>
+    <br>
+    <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+    <br>
+    <%= current_user.name %> - <%= current_user.sector.name %>
     <hr>
+
     <br>
 
     <%= yield %>

@@ -10,7 +10,9 @@
   </head>
 
   <body>
-    <%= link_to "Inicio", "#" %>
+    <%= link_to "Inicio", backoffice_root_path %>
+    <br>
+    <%= link_to "Sair", destroy_admin_session_path, method: :delete %>
     <hr>
     <br>
 

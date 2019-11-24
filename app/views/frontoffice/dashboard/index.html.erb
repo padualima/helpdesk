@@ -1,1 +1,5 @@
+<% if current_user.sector.id == 16 %>
+  <%= link_to "Help-Desk", frontoffice_calls_path %>
+<% end %>
+<br>
 <%= link_to "Chamados", frontoffice_orders_path %>

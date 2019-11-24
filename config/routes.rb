@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   namespace :frontoffice do
     resources :orders
-    get 'dashboard/index'
+    resources :calls
+    root 'dashboard#index'
   end
 
   namespace :backoffice do
