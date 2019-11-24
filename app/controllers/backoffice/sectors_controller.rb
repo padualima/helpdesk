@@ -1,4 +1,4 @@
-class Backoffice::SectorsController < ApplicationController
+class Backoffice::SectorsController < BackofficeController
   before_action :set_sectors, only: [:edit, :update]
   def index
     @sectors = Sector.all

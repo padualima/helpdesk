@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  namespace :backoffice, path: "/" do
+
+  namespace :frontoffice do
+    resources :orders
+    get 'dashboard/index'
+  end
+
+  namespace :backoffice do
     root 'dashboard#index'
     resources :sectors
     resources :sector_calleds

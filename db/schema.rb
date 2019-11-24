@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_24_035621) do
+ActiveRecord::Schema.define(version: 2019_11_24_070612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,21 @@ ActiveRecord::Schema.define(version: 2019_11_24_035621) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "sector_called_id"
+    t.string "title"
+    t.text "description"
+    t.string "user_finished"
+    t.date "date_finished"
+    t.string "status"
+    t.string "priority"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sector_called_id"], name: "index_orders_on_sector_called_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "sector_calleds", force: :cascade do |t|
@@ -56,6 +71,8 @@ ActiveRecord::Schema.define(version: 2019_11_24_035621) do
     t.index ["sector_id"], name: "index_users_on_sector_id"
   end
 
+  add_foreign_key "orders", "sector_calleds"
+  add_foreign_key "orders", "users"
   add_foreign_key "sector_calleds", "sectors"
   add_foreign_key "users", "sectors"
 end

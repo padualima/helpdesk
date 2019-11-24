@@ -1,4 +1,4 @@
-class Backoffice::UsersController < ApplicationController
+class Backoffice::UsersController < BackofficeController
   before_action :set_users, only: [:edit, :update]
   def index
     @users = User.all

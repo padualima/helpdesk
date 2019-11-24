@@ -1,0 +1,2 @@
+module Frontoffice::OrdersHelper
+end

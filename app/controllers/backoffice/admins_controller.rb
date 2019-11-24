@@ -1,2 +1,2 @@
-class Backoffice::AdminsController < ApplicationController
+class Backoffice::AdminsController < BackofficeController
 end
