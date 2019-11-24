@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   namespace :frontoffice do
     resources :orders
-    resources :calls
+    resources :calls do
+      patch 'finished'
+    end
     root 'dashboard#index'
   end
 

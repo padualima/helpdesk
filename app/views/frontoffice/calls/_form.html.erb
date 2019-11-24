@@ -1,4 +1,4 @@
-<%= form_with model:([:frontoffice, order])  do |form| %>
+<%= form_with model:([:frontoffice, order]), url: frontoffice_call_path  do |form| %>
 <%= form.label :sector_called_id %>
 <%= form.select :sector_called_id, @sector_calleds %>
 <br>
@@ -12,13 +12,7 @@
 <%= form.select :priority, @priorities %>
 <br>
 <%= form.label :status %>
-<%= form.text_field :status %>
-<br>
-<%= form.label :user_finished %>
-<%= form.text_field :user_finished %>
-<br>
-<%= form.label :date_finished %>
-<%= form.date_field :date_finished %>
+<%= form.select :status, @status %>
 <br>
 <%= form.submit %>
 <% end %>

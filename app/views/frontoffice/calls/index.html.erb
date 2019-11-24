@@ -3,7 +3,8 @@
 <%= order.status %>
 <%= order.user_finished %>
 <%= order.date_finished %>
-<%= link_to frontoffice_call_path(order), method: :patch do %>
+<%= link_to "Editar", edit_frontoffice_call_path(order) %>
+<%= link_to frontoffice_call_finished_path(order), method: :patch do %>
 <button type="button" name="button">finalizar</button>
 <% end %>
 <!--
