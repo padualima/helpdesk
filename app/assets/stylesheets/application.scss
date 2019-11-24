@@ -1,0 +1,29 @@
+@import "bootstrap";
+// @import "@fortawesome/fontawesome-free/css/all.css";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "sb-admin-2.min";
+
+.background-objetivo{
+  background-image: image-url("objetivo.png");
+  background-size: cover;
+  background-position: center;
+}
+.btn-user{
+  border-radius: 50px;
+  width: 60% !important;
+  margin: auto;
+}
+.form-control-user{
+  border-radius: 50px;
+}
+.card-stats{
+  transition: 0.3s;
+}
+
+.card-stats:hover{
+  transform: scale(1.05);
+}
+.logo-obj{
+  width: 99%;
+}

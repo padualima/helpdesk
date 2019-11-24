@@ -31,11 +31,14 @@ gem 'jbuilder', '~> 2.5'
 # gem 'mini_magick', '~> 4.8'
 
 # gemns added
-
 gem 'devise'
 gem 'devise-i18n'
 gem 'rails-i18n'
 gem 'faker'
+gem 'bootstrap'
+gem 'font-awesome-sass', '~> 5.11.2'
+gem 'jquery-rails'
+gem 'jquery-easing-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
