@@ -1,0 +1,8 @@
+<% @users.each do |user| %>
+<%= user.id %>
+<%= user.name %>
+<%= link_to "Editar", edit_backoffice_user_path(user) %>
+<% end %>
+
+<br>
+<%= link_to "Novo Funcionario", new_backoffice_user_path %>
