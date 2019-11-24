@@ -28,8 +28,10 @@ ActiveRecord::Schema.define(version: 2019_11_24_035621) do
   end
 
   create_table "sector_calleds", force: :cascade do |t|
+    t.bigint "sector_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["sector_id"], name: "index_sector_calleds_on_sector_id"
   end
 
   create_table "sectors", force: :cascade do |t|
@@ -54,5 +56,6 @@ ActiveRecord::Schema.define(version: 2019_11_24_035621) do
     t.index ["sector_id"], name: "index_users_on_sector_id"
   end
 
+  add_foreign_key "sector_calleds", "sectors"
   add_foreign_key "users", "sectors"
 end

@@ -1,0 +1,9 @@
+<% @sector_calleds.each do |sector| %>
+<%= sector.id %>
+<%= sector.sector.name %>
+<%= link_to "Editar", edit_backoffice_sector_called_path(sector) %>
+<% end %>
+
+<br>
+
+<%= link_to "Novo Setor", new_backoffice_sector_called_path %>

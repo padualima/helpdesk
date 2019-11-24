@@ -1,0 +1,6 @@
+<%= form_with model:([:backoffice, sector_called])  do |form| %>
+
+<%= form.select :sector_id, @sectors %>
+
+<%= form.submit %>
+<% end %>
