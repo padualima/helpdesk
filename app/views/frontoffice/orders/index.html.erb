@@ -5,7 +5,13 @@
 <%= order.status %><br>
 <%= order.priority %><br>
 <%= link_to "Editar", edit_frontoffice_order_path(order) %>
+
+
+
+<%= form_tag frontoffice_order_path(order), method: :patch do %>
+<%= button_tag("Cancelar", { value:"Cancelado" }) %>
 <% end %>
 
 <br>
 <%= link_to "Novo Chamado", new_frontoffice_order_path %>
+<% end %>
