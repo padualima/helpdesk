@@ -22,7 +22,14 @@
 }
 
 .card-stats:hover{
-  transform: scale(1.05);
+  transform: scale(1.04);
+}
+.card-stats-2{
+  transition: 0.2s;
+}
+
+.card-stats-2:hover{
+  transform: scale(1.01);
 }
 .logo-obj{
   width: 99%;

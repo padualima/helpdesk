@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   namespace :frontoffice do
-    resources :orders
+    resources :orders, except: [:show]
+    get 'orders/finished', to: "orders#finished"
     resources :calls do
       patch 'finished'
     end

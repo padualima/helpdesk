@@ -1,16 +1,84 @@
-<% @orders.each do |order| %>
-<%= order.title %>
-<%= order.status %>
-<%= order.user_finished %>
-<%= order.date_finished %>
-<%= link_to "Editar", edit_frontoffice_call_path(order) %>
-<%= link_to frontoffice_call_finished_path(order), method: :patch do %>
-<button type="button" name="button">finalizar</button>
-<% end %>
-<!--
-<#%= form_tag frontoffice_calls_finished_path(record_key_for_dom_id(order)), method: :patch do %>
-<#%= button_tag("Finalizar", {  }) %>
-<#% end %> %>
--->
-<br>
-<% end %>
+<!-- Area Chart -->
+<div class="col-xl-12 col-lg-12 card-stats-2">
+  <div class="card shadow mb-4">
+    <!-- Card Header - Dropdown -->
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h6 class="m-0 font-weight-bold text-primary">Aguardando Atendimento</h6>
+    </div>
+    <!-- Card Body -->
+    <div class="card-body">
+      <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+        <thead>
+          <tr>
+            <th rowspan="1" colspan="1">ID</th>
+            <th rowspan="1" colspan="1">Assunto</th>
+            <th rowspan="1" colspan="1">De</th>
+            <th rowspan="1" colspan="1">Sector chamado</th>
+            <th rowspan="1" colspan="1">Status</th>
+            <th rowspan="1" colspan="1">Priority</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders_open.each do |order| %>
+          <tr role="row" class="odd">
+            <td class="sorting_1"><%= order.id %></td>
+            <td><%= order.title %></td>
+            <td><%= order.user.name %></td>
+            <td><%= order.sector_called.sector.name %></td>
+            <td><%= order.status  %></td>
+            <td><%= order.priority %></td>
+            <td>
+              <%= link_to "Editar", edit_frontoffice_call_path(order) %>
+              <%= link_to frontoffice_call_finished_path(order), method: :patch do %>
+              <button type="button" name="button">finalizar</button>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<hr>
+<!-- Area Chart -->
+<div class="col-xl-12 col-lg-12 card-stats-2">
+  <div class="card shadow mb-4">
+    <!-- Card Header - Dropdown -->
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h6 class="m-0 font-weight-bold text-primary">Atendimentos Finalizado</h6>
+    </div>
+    <!-- Card Body -->
+    <div class="card-body">
+      <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+        <thead>
+          <tr>
+            <th rowspan="1" colspan="1">ID</th>
+            <th rowspan="1" colspan="1">Assunto</th>
+            <th rowspan="1" colspan="1">De</th>
+            <th rowspan="1" colspan="1">Sector</th>
+            <th rowspan="1" colspan="1">Status</th>
+            <th rowspan="1" colspan="1">Priority</th>
+            <th rowspan="1" colspan="1">Finalizado por</th>
+            <th rowspan="1" colspan="1">Data de Finalização</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders_finished.each do |order| %>
+          <tr role="row" class="odd">
+            <td class="sorting_1"><%= order.id %></td>
+            <td><%= order.title %></td>
+            <td><%= order.user.name %></td>
+            <td><%= order.user.sector.name %></td>
+            <td><%= order.status %></td>
+            <td><%= order.priority %></td>
+            <td><%= order.user_finished %></td>
+            <td><%= order.date_finished %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

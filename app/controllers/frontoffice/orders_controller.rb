@@ -1,12 +1,17 @@
 class Frontoffice::OrdersController < FrontofficeController
   before_action :set_orders, only: [:edit, :update]
   def index
-    @orders = Order.all
+    @orders = Order.where(user_id: current_user).where(status: "Aguardando atendimento")
   end
 
   def new
     @order = Order.new
     prepare_form
+  end
+
+  def finished
+    @orders_finished = Order.where(status: "Finalizado").where(user_id: current_user.id)
+
   end
 
   def edit

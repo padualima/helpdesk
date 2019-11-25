@@ -5,7 +5,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.references :sector_called, foreign_key: true
       t.string :title
       t.text :description
-      t.string :user_finished
+      t.integer :user_finished
       t.date :date_finished
       t.string :status
       t.string :priority

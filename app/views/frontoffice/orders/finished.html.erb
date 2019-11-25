@@ -1,11 +1,11 @@
 <%= render "title" %>
 <div class="row">
   <!-- Area Chart -->
-  <div class="col-xl-12 col-lg-12">
-    <div class="card shadow mb-4">
+  <div class="col-xl-12 col-lg-12 ">
+    <div class="card shadow">
       <!-- Card Header - Dropdown -->
       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bold text-primary">Chamados abertos</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Chamados finalizados</h6>
       </div>
       <!-- Card Body -->
       <div class="card-body">
@@ -15,26 +15,20 @@
               <th rowspan="1" colspan="1">ID</th>
               <th rowspan="1" colspan="1">Assunto</th>
               <th rowspan="1" colspan="1">De</th>
-              <th rowspan="1" colspan="1">Status</th>
-              <th rowspan="1" colspan="1">Prioridade</th>
-              <th></th>
+              <th rowspan="1" colspan="1">Sector chamado</th>
+              <th rowspan="1" colspan="1">Finalizado por</th>
+              <th rowspan="1" colspan="1">Data Finalizada</th>
             </tr>
           </thead>
           <tbody>
-            <% @orders.each do |order| %>
+            <% @orders_finished.each do |order| %>
             <tr role="row" class="odd">
               <td class="sorting_1"><%= order.id %></td>
               <td><%= order.title %></td>
               <td><%= order.user.name %></td>
-              <td><%= order.status %></td>
-              <td><%= order.priority %></td>
-              <td>
-                <%= link_to "Editar", edit_frontoffice_order_path(order) %>
-
-                <%= form_tag frontoffice_order_path(order), method: :patch do %>
-                <%= button_tag("Cancelar", { value: "Cancelado" } ) %>
-                <% end %>
-              </td>
+              <td><%= order.sector_called.sector.name %></td>
+              <td><%= order.user_finished  %></td>
+              <td><%= order.date_finished %></td>
             </tr>
             <% end %>
           </tbody>
