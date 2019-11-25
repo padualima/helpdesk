@@ -16,6 +16,13 @@ class Frontoffice::OrdersController < FrontofficeController
 
   def edit
     prepare_form
+    information
+  end
+
+  def cancel
+    @order = Order.find(params[:order_id])
+    @order.update(status: "Cancelado")
+    redirect_to frontoffice_orders_path
   end
 
   def create
@@ -29,10 +36,7 @@ class Frontoffice::OrdersController < FrontofficeController
   end
 
   def update
-    if params[:button] == "Cancelado"
-      @order.update(status: "Cancelado")
-      redirect_to frontoffice_orders_path
-    elsif @order.update(orders_users_params)
+    if @order.update(orders_users_params)
       redirect_to frontoffice_orders_path
     else
       prepare_form
@@ -40,6 +44,10 @@ class Frontoffice::OrdersController < FrontofficeController
   end
 
   private
+  def information
+    @user_sector = current_user.sector
+    @sector_called =  SectorCalled.where(sector_id: @user_sector.id)
+  end
 
   def set_orders
     @order = Order.find(params[:id])

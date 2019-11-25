@@ -3,7 +3,7 @@
   <div class="card shadow mb-4">
     <!-- Card Header - Dropdown -->
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-      <h6 class="m-0 font-weight-bold text-primary">Aguardando Atendimento</h6>
+      <h6 class="m-0 font-weight-bold text-primary">Chamados do <%= @user_sector.name %>, aguardando Atendimento</h6>
     </div>
     <!-- Card Body -->
     <div class="card-body">
@@ -29,9 +29,11 @@
             <td><%= order.status  %></td>
             <td><%= order.priority %></td>
             <td>
-              <%= link_to "Editar", edit_frontoffice_call_path(order) %>
-              <%= link_to frontoffice_call_finished_path(order), method: :patch do %>
-              <button type="button" name="button">finalizar</button>
+              <%= link_to edit_frontoffice_order_path(order) do %>
+              <i class="far fa-edit"></i>
+              <% end %>
+              <%= link_to frontoffice_call_finished_path(order), method: :patch, action: :finished do %>
+              <i class="fas fa-times" value = "Finalizado" > </i>
               <% end %>
             </td>
           </tr>
@@ -47,7 +49,7 @@
   <div class="card shadow mb-4">
     <!-- Card Header - Dropdown -->
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-      <h6 class="m-0 font-weight-bold text-primary">Atendimentos Finalizado</h6>
+      <h6 class="m-0 font-weight-bold text-primary">Seus atendimentos finalizados</h6>
     </div>
     <!-- Card Body -->
     <div class="card-body">
@@ -60,7 +62,6 @@
             <th rowspan="1" colspan="1">Sector</th>
             <th rowspan="1" colspan="1">Status</th>
             <th rowspan="1" colspan="1">Priority</th>
-            <th rowspan="1" colspan="1">Finalizado por</th>
             <th rowspan="1" colspan="1">Data de Finalização</th>
           </tr>
         </thead>
@@ -73,7 +74,6 @@
             <td><%= order.user.sector.name %></td>
             <td><%= order.status %></td>
             <td><%= order.priority %></td>
-            <td><%= order.user_finished %></td>
             <td><%= order.date_finished %></td>
           </tr>
           <% end %>

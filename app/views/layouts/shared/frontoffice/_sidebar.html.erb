@@ -24,16 +24,17 @@
 
   <!-- Heading -->
   <div class="sidebar-heading">
-    Interface
+    Comunicação
   </div>
 
   <!-- Nav Item - Pages Collapse Menu -->
-  <% if current_user.sector.id == 16 %>
+
+  <% if confimation == true %>
   <li class="nav-item">
     <%= link_to frontoffice_calls_path,class: "nav-link collapsed",
     data: { toggle: "collapse", target: "#collapseTwo"},
     aria: {expanded: "true", controls: "collapseTwo"}  do %>
-    <i class="fas fa-fw fa-cog"></i>
+    <i class="fas fa-fw fa-rocket"></i>
     <span>Help-Desk</span>
     <% end %>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -51,7 +52,7 @@
     <%= link_to frontoffice_orders_path, class: "nav-link collapsed",
     data: { toggle:"collapse", target:"#collapseUtilities" },
     aria: { expanded:"true", controls:"collapseUtilities" } do %>
-    <i class="fas fa-fw fa-wrench"></i>
+    <i class="fas fa-fw fa-headset"></i>
     <span>Chamados</span>
     <% end %>
     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
