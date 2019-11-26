@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: helpdesk_production
-  username: helpdesk
+  username: padualima
   password: <%= ENV['HELPDESK_DATABASE_PASSWORD'] %>
