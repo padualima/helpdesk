@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_11_24_070612) do
     t.bigint "sector_called_id"
     t.string "title"
     t.text "description"
-    t.string "user_finished"
+    t.integer "user_finished"
     t.date "date_finished"
     t.string "status"
     t.string "priority"

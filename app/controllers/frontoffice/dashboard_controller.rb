@@ -1,5 +1,4 @@
 class Frontoffice::DashboardController < FrontofficeController
-  require 'date'
   def index
     @orders_user_finished = Order.where(status: "Finalizado").where(user_finished: current_user.id)
     @user_sector = current_user.sector.id

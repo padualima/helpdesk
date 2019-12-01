@@ -8,7 +8,10 @@ module ApplicationHelper
   end
 
   def percentage
-    (@amount_user * 100) / @amount_sector
+    if @amount_user == 0 && @amount_sector == 0
+      return 0
+    else
+      (@amount_user * 100) / @amount_sector
+    end
   end
-
 end

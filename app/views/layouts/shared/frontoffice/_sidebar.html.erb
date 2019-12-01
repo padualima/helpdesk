@@ -3,9 +3,9 @@
   <!-- Sidebar - Brand -->
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
     <div class="sidebar-brand-icon rotate-n-15">
-      <i class="fas fa-laugh-wink"></i>
+      <i class="fab fa-cuttlefish"></i>
     </div>
-    <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+    <div class="sidebar-brand-text mx-3">CallDesk <sup>APP</sup></div>
   </a>
 
   <!-- Divider -->
@@ -54,6 +54,22 @@
     aria: { expanded:"true", controls:"collapseUtilities" } do %>
     <i class="fas fa-fw fa-headset"></i>
     <span>Chamados</span>
+    <% end %>
+    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        <h6 class="collapse-header">Custom Utilities:</h6>
+        <%= link_to "Novo", new_frontoffice_order_path, class: "collapse-item" %>
+        <%= link_to "Listar chamados", frontoffice_orders_path, class: "collapse-item" %>
+        <%= link_to "Chamados Finalizados", frontoffice_orders_finished_path, action: :finished, class: "collapse-item" %>
+      </div>
+    </div>
+  </li>
+  <li class="nav-item">
+    <%= link_to frontoffice_orders_path, class: "nav-link collapsed",
+    data: { toggle:"collapse", target:"#collapseUtilities" },
+    aria: { expanded:"true", controls:"collapseUtilities" } do %>
+    <i class="fas fa-fw fa-comments"></i>
+    <span>Comunicador interno</span>
     <% end %>
     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
